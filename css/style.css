@@ -1,4 +1,4 @@
-/* boje i fontovi */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Sora:wght@400;600;700;800&display=swap');
 
 :root {
@@ -58,7 +58,7 @@ body {
 
 .kontejner {
   width: 100%;
-  padding: 0 8%; /* Ovo je ključ - poklapa se sa tvojim navbarom */
+  padding: 0 8%;
   margin: 0 auto;
   max-width: 1440px;
 }
@@ -89,6 +89,7 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: var(--tranzicija);
+  display: inline-block;
 }
 
 .dugme-akcija:hover {
@@ -97,7 +98,7 @@ body {
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
-/* kartice : portfolio */
+/* kartice : portfolio i opšte */
 .portfolio-link {
   text-decoration: none;
   color: inherit;
@@ -131,7 +132,29 @@ body {
 }
 
 .sadrzaj-kartice {
-  padding: 30px;
+  padding: 60px;
+}
+
+/* specijalne klse da mi se ne kvari sve ako menjam jednu */
+.sadrzaj-kartice.kartica-usluge p {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #8a8a93;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sadrzaj-kartice.kartica-usluge h3 {
+  min-height: 54px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.sadrzaj-kartice.kartica-portfolio {
+  padding: 40px;
 }
 
 .kategorija {
@@ -158,6 +181,27 @@ body {
   border-color: var(--akcenat-plava);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* portfloio, rastezanje i fiksiranje linka */
+#mreza-portfolia .portfolio-link {
+  display: flex;
+  height: 100%;
+  text-decoration: none;
+}
+
+#mreza-portfolia .portfolio-kartica {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#mreza-portfolia .sadrzaj-kartice {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 30px;
 }
 
 .portfolio-kartica:hover .kontejner-slike img {
@@ -189,7 +233,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* sjaj u pozadini*/
+/* sjaj iza */
 .glow-top-left {
   position: absolute; top: 10%; left: 0; width: 400px; height: 400px;
   background: rgba(59, 130, 246, 0.12); filter: blur(100px); border-radius: 50%; pointer-events: none; z-index: 0;
@@ -200,7 +244,7 @@ body {
   background: rgba(255, 203, 31, 0.06); filter: blur(90px); border-radius: 50%; pointer-events: none; z-index: 0;
 }
 
-/* podnozje-footer */
+/* donji futer */
 .glavni-footer {
   background: #040508;
   padding: 80px 8% 40px;
@@ -250,13 +294,7 @@ body {
   font-size: 0.85rem;
 }
 
-/* responzivnost ka dalje*/
-@media (max-width: 768px) {
-  .nav-linkovi { display: none; }
-  .footer-mreza { grid-template-columns: 1fr; gap: 30px; }
-  .footer-kolona { text-align: center; }
-}
-/* stilovi */
+/* hero i stilovi*/
 .hero-sekcija {
   padding: 150px 8% 100px;
   min-height: 80vh;
@@ -265,10 +303,11 @@ body {
   justify-content: flex-start;
   background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
 }
+
 .hero-sekcija p {
-  margin-left: 0 ;
-  margin-right: auto ;
-  text-align: left ;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
   max-width: 600px;
 }
 
@@ -295,8 +334,9 @@ body {
 .hero-opis {
   color: var(--tekst-izbledeli);
   font-size: 1.1rem;
-  max-width: 600px;
-  margin-bottom: 60px;
+  max-width: 750px;
+  margin: 40px auto;
+  line-height: 1.8;
 }
 
 .hero-akcije {
@@ -317,22 +357,15 @@ body {
   margin-left: 5px;
 }
 
-/* logo i nav */
 .nav-logo-img {
   height: 50px;
   width: auto;
   filter: brightness(1.2) contrast(1.1);
 }
 
-.dugme-akcija {
-  display: inline-block;
-}
-
-/* detalji futera */
 .logo-footer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  display: inline-block;
   text-decoration: none;
 }
 
@@ -344,6 +377,7 @@ body {
 
 .kontakt-adresa {
   color: var(--tekst-izbledeli);
+  margin-bottom: 12px;
 }
 
 .kontakt-email {
@@ -352,7 +386,7 @@ body {
   margin-top: 10px;
 }
 
-/* osnovni kontejner - sekcije */
+/* kontakt stranica i struktura */
 .kontakt-heroj {
   padding: 160px 8% 100px;
   min-height: 100vh;
@@ -363,7 +397,6 @@ body {
   background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
 }
 
-/* leva strana i forma  */
 .kontakt-mreza {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -376,7 +409,6 @@ body {
   align-items: stretch;
 }
 
-/* kolona sa leve strane, tekst i kartice */
 .kontakt-tekst {
   display: flex;
   flex-direction: column;
@@ -391,12 +423,10 @@ body {
   letter-spacing: -1px;
 }
 
-/* razmak da gurne dole za ravnanje */
 .razmak-do-kartica {
   flex: 1 1 auto;
 }
 
-/* kontakt kartice  */
 .kontakt-kartice-grupa {
   display: flex;
   flex-direction: column;
@@ -425,21 +455,13 @@ body {
   font-size: 1.2rem;
 }
 
-/* nasa kancelarija varijabla plava */
-.plava-kartica h3 {
-  color: var(--akcenat-plava);
+.plava-kartica h3, .zuta-kartica h3 {
   font-size: 14px;
   margin: 0 0 5px 0;
 }
+.plava-kartica h3 { color: var(--akcenat-plava); }
+.zuta-kartica h3 { color: var(--akcenat-zuta); }
 
-/* direktan kontakt varijabla zuta */
-.zuta-kartica h3 {
-  color: var(--akcenat-zuta);
-  font-size: 14px;
-  margin: 0 0 5px 0;
-}
-
-/* stilovi za kartice */
 .plava-kartica .ikona-okvir { background: rgba(59, 130, 246, 0.1); color: var(--akcenat-plava); }
 .zuta-kartica .ikona-okvir { background: rgba(255, 203, 31, 0.1); color: var(--akcenat-zuta); }
 
@@ -457,7 +479,7 @@ body {
   background: rgba(255, 203, 31, 0.08);
 }
 
-/* efekat za kontakt */
+/* Kontakt forma */
 .kontakt-forma {
   background: rgba(255, 255, 255, 0.02);
   padding: 50px;
@@ -493,14 +515,12 @@ body {
   transition: all 0.3s;
 }
 
-/* efekti za polja */
 .polje input:focus, .polje textarea:focus {
   border-color: var(--akcenat-plava);
   background: rgba(59, 130, 246, 0.03);
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
 }
 
-/* plavo dugme u formi */
 .forma-dugme {
   width: 100%;
   padding: 20px;
@@ -520,7 +540,6 @@ body {
   box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
 }
 
-/* custom select strelica */
 .selekt-projekta {
   appearance: none;
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23666%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
@@ -528,7 +547,7 @@ body {
   background-position: right 15px center;
 }
 
-/* hero i header */
+/* usluge i kolone*/
 .usluge-header {
   padding: 180px 8% 80px;
   text-align: center;
@@ -546,22 +565,14 @@ body {
   margin-bottom: 20px;
 }
 
-.hero-opis {
-  color: var(--tekst-izbledeli);
-  max-width: 750px;
-  margin: 40px auto;
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* kartice-mreza */
 .sekcija-kartice {
   padding: 60px 8% 100px;
 }
 
+/* mreza za 2 kolone */
 .usluge-mreza {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
@@ -570,7 +581,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* sekcija prednosti */
 .sekcija-prednosti {
   padding: 100px 8%;
   background: #080a10;
@@ -594,7 +604,7 @@ body {
   color: var(--tekst-izbledeli);
 }
 
-/* citat-testimonial */
+/* recenzije i citati */
 .sekcija-citat {
   padding: 120px 8%;
   text-align: center;
@@ -636,6 +646,7 @@ body {
   color: var(--akcenat-plava);
 }
 
+/* FAQ */
 .sekcija-faq {
   padding: 100px 8%;
   background: #080a10;
@@ -672,7 +683,7 @@ body {
   border-bottom: none;
 }
 
-/* konacno CTA */
+/* CTA sekcija */
 .sekcija-cta {
   padding: 120px 8%;
   text-align: center;
@@ -701,44 +712,20 @@ body {
   font-size: 1.2rem !important;
 }
 
-/* Footer Specifičnosti */
-.logo-footer {
-  margin-bottom: 25px;
-  display: inline-block;
-}
-
-.footer-logo-img {
-  height: 45px;
-}
-
-.kontakt-adresa {
-  color: var(--tekst-izbledeli);
-  margin-bottom: 12px;
-}
-
-.kontakt-email {
-  color: var(--akcenat-zuta);
-  font-weight: 600;
-}
-
 /* desni deo pocetne stranice */
-
-/* gasimo flexbox samo na kontejneru unutar hero sekcije i pretvaram u grid */
 .hero-sekcija .kontejner {
   display: grid !important;
-  grid-template-columns: 1fr 380px !important; /* Levo tekst fleks, desno kartice fiksne */
+  grid-template-columns: 1fr 380px !important;
   column-gap: 6% !important;
   row-gap: 40px !important;
   align-items: center !important;
 }
 
-/* ogranicavam sirinu da ne gura kolonu */
 .hero-sekcija .hero-sadrzaj {
   width: 100% !important;
   max-width: 650px !important;
 }
 
-/* ako se dodaju brojke ili statistika onda idu ispod teksta */
 .hero-sekcija .hero-brojke {
   grid-column: 1 !important;
   display: flex !important;
@@ -748,7 +735,6 @@ body {
   margin-top: 20px !important;
 }
 
-/* stabilizujemo desnu kolonu sa karticama */
 .hero-sekcija .hero-desno {
   width: 380px !important;
   display: flex !important;
@@ -756,7 +742,6 @@ body {
   gap: 16px !important;
 }
 
-/* stilovi */
 .hero-kartica {
   background: var(--pozadina-kartice) !important;
   border: 1px solid var(--staklo-ivica) !important;
@@ -835,16 +820,9 @@ body {
   font-size: 0.85rem !important;
 }
 
-.status.aktivan {
-  color: var(--akcenat-plava) !important;
-}
+.status.aktivan { color: var(--akcenat-plava) !important; }
+.status.zavrsen { color: var(--tekst-izbledeli) !important; opacity: 0.6 !important; }
 
-.status.zavrsen {
-  color: var(--tekst-izbledeli) !important;
-  opacity: 0.6 !important;
-}
-
-/* plava kartica za uvodni poziv */
 .kartica-poziv {
   display: flex !important;
   flex-direction: row !important;
@@ -854,7 +832,6 @@ body {
   border: 1px solid rgba(59, 130, 246, 0.15) !important;
 }
 
-/* mali plavi krug sa kvacicom */
 .krug-kvacica {
   width: 38px !important;
   height: 38px !important;
@@ -898,24 +875,7 @@ body {
   margin: 0 !important;
 }
 
-/* response za telefone */
-@media (max-width: 991px) {
-  .hero-sekcija .kontejner {
-    grid-template-columns: 1fr !important; /* sve prelazi u jednu kolonu */
-    gap: 50px !important;
-  }
-
-  .hero-sekcija .hero-sadrzaj,
-  .hero-sekcija .hero-desno,
-  .hero-sekcija .hero-brojke {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-
-/* pocetna strana */
-
+/* Početna strana - Usluge */
 .sekcija-usluge-pocetna {
   padding: 100px 0;
   background-color: var(--pozadina-tamna);
@@ -927,11 +887,10 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 50px;
-  text-align: left; /* prati poravnanje hero naslova */
+  text-align: left;
   color: var(--tekst-glavni);
 }
 
-/*  grid od 4 kolone*/
 .usluge-mreza-pocetna {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -939,30 +898,12 @@ body {
   width: 100%;
 }
 
-/* peglam visine da sve kartice u redu uvek budu iste visine bez obzira na kolicinu teksta */
-.usluge-mreza-pocetna .portfolio-link {
-  height: 100%;
-}
-
-.usluge-mreza-pocetna .portfolio-kartica {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.usluge-mreza-pocetna .sadrzaj-kartice {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.usluge-mreza-pocetna .sadrzaj-kartice p {
-  flex-grow: 1;
-  margin-top: 10px;
-}
+.usluge-mreza-pocetna .portfolio-link { height: 100%; }
+.usluge-mreza-pocetna .portfolio-kartica { display: flex; flex-direction: column; height: 100%; }
+.usluge-mreza-pocetna .sadrzaj-kartice { flex-grow: 1; display: flex; flex-direction: column; }
+.usluge-mreza-pocetna .sadrzaj-kartice p { flex-grow: 1; margin-top: 10px; }
 
 
-/* za tablete prebacujemo u 2 kolone */
 @media (max-width: 1200px) {
   .usluge-mreza-pocetna {
     grid-template-columns: repeat(2, 1fr);
@@ -974,7 +915,144 @@ body {
   }
 }
 
-/* za mobilne sve ide u jednu kolonu */
+@media (max-width: 991px) {
+  .hero-sekcija .kontejner {
+    grid-template-columns: 1fr !important;
+    gap: 50px !important;
+  }
+  .hero-sekcija .hero-sadrzaj,
+  .hero-sekcija .hero-desno,
+  .hero-sekcija .hero-brojke {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .kontakt-mreza {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .footer-mreza {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* mobilni deo */
+@media (max-width: 768px) {
+  /* prilagodjavanje telefonu */
+  .kontejner, .navigacija, .hero-sekcija, .sekcija-kartice,
+  .sekcija-prednosti, .sekcija-citat, .sekcija-faq, .sekcija-cta,
+  .glavni-footer, .kontakt-heroj {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+
+  /* navigacija */
+  .nav-linkovi {
+    display: none;
+  }
+
+  /* hero prilagodjavanje*/
+  .hero-sekcija {
+    padding-top: 130px;
+    padding-bottom: 60px;
+  }
+  .hero-sekcija h1 {
+    font-size: 2.3rem;
+  }
+  .hero-opis {
+    font-size: 1rem;
+    margin: 25px 0;
+  }
+  .hero-akcije {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .hero-sekcija .hero-brojke {
+    gap: 30px !important;
+    flex-wrap: wrap;
+  }
+  .hero-sekcija .hero-desno {
+    width: 100% !important;
+  }
+
+  /* usluge  - mreza ide u 1 kolonu */
+  .usluge-mreza {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .sadrzaj-kartice.kartica-usluge {
+    padding: 30px 20px;
+  }
+
+  .sadrzaj-kartice.kartica-usluge h3 {
+    min-height: auto;
+    margin-bottom: 12px;
+  }
+
+  /* mreza prve kolone, portfolio str*/
+  #mreza-portfolia {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+  #mreza-portfolia .sadrzaj-kartice {
+    padding: 25px 20px;
+  }
+
+  /* smanjenje unutrasnjeg sadrzaja kartica  */
+  .sadrzaj-kartice {
+    padding: 30px 20px;
+  }
+
+  /* kontakt forma i tekst*/
+  .kontakt-heroj {
+    padding-top: 140px;
+  }
+  .kontakt-tekst h1 {
+    font-size: 2.2rem;
+  }
+  .kontakt-forma {
+    padding: 25px 20px;
+    border-radius: 24px;
+  }
+  .forma-red {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* ostale mreze */
+  .prednosti-mreza {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .panel-prednost {
+    padding: 25px;
+  }
+  .footer-mreza {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .footer-kolona {
+    text-align: center;
+  }
+  .opis-firme {
+    max-width: 100%;
+  }
+
+  /* smanjeni velikih naslovi*/
+  .usluge-header h1, .prednosti-naslov, .faq-naslov, .cta-naslov, .header-centar h1 {
+    font-size: 2rem !important;
+  }
+  .citat-box {
+    padding: 30px 10px;
+  }
+  .citat-glavni {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mikro mobilni ekrani (max-sirina: 650px) */
 @media (max-width: 650px) {
   .usluge-mreza-pocetna {
     grid-template-columns: 1fr;
