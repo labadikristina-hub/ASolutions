@@ -1052,7 +1052,7 @@ body {
   }
 }
 
-/* Mikro mobilni ekrani (max-sirina: 650px) */
+/* mikro mobilni ekrani (max-sirina: 650px) */
 @media (max-width: 650px) {
   .usluge-mreza-pocetna {
     grid-template-columns: 1fr;
@@ -1064,5 +1064,116 @@ body {
   .usluge-pocetna-naslov {
     font-size: 1.8rem;
     margin-bottom: 30px;
+  }
+}
+/*hamburger ovde pravim, a i navigaciju
+
+/* ako je desktop onda ga nema*/
+.hamburger {
+  display: none !important;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden; /* sakriva unutrasnje spanove u desktop modu */
+}
+
+/*Mobilni stil za male ekrane*/
+
+@media (max-width: 768px) {
+
+  /* reset i fiksiranje glavne trake navbara */
+  .navigacija {
+    padding: 15px 5% !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0a0c12 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    z-index: 1000;
+  }
+
+  /* dimenzije hamburgera */
+  .hamburger {
+    display: flex !important;
+    width: 30px !important;
+    height: 24px !important;
+    overflow: visible;
+    z-index: 1100;
+  }
+
+  /* tri crtice hamburgera :D */
+  .hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* vertikalni padajuci meni */
+  .nav-linkovi {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: rgba(10, 12, 18, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 40px !important;
+    transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+    z-index: 1050;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* kada js doda klasu aktivan meni upada*/
+  .nav-linkovi.aktivan {
+    right: 0;
+  }
+
+  /* linkovi unutar mobilnog menija */
+  .nav-linkovi li a {
+    font-size: 1.2rem !important;
+    color: #ffffff !important;
+    display: block;
+    padding: 10px 20px;
+  }
+
+  /* akciono dugme prilagodjeno */
+  .nav-linkovi .dugme-akcija {
+    background: #2563eb !important;
+    padding: 12px 30px !important;
+    border-radius: 8px !important;
+    text-align: center;
+  }
+
+  /* tri crtice se pretvaraju u "X" kada je otvoren */
+  .hamburger.otvoren span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.otvoren span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  .hamburger.otvoren span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
   }
 }
